@@ -2,16 +2,36 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>CyberAI | Proje</title>
+    <title>CyberAI | Entegrasyon Projesi</title>
     <style>
-        body { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background: #202123; color: white; font-family: sans-serif; }
-        .btn { padding: 20px 40px; background: #00ffcc; color: black; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 20px; }
+        body { background: #121212; color: #00ffcc; font-family: 'Courier New', monospace; padding: 20px; }
+        .container { max-width: 800px; margin: auto; border: 1px solid #333; padding: 20px; border-radius: 10px; }
+        .log { background: #000; padding: 15px; height: 300px; overflow-y: scroll; border: 1px solid #00ffcc; }
+        .input-area { margin-top: 10px; display: flex; }
+        input { flex: 1; background: #222; border: 1px solid #00ffcc; color: #fff; padding: 10px; }
+        button { background: #00ffcc; color: #000; padding: 10px; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>CyberAI Entegrasyon Sistemi</h1>
-    <p>Sistemi başlatmak için aşağıdaki butona tıklayın:</p>
-    <br>
-    <a href="https://huggingface.co/chat/" target="_blank" class="btn">SİSTEMİ BAŞLAT</a>
+    <div class="container">
+        <h1>CyberAI Core v1.0</h1>
+        <div class="log" id="log">Sistem başlatıldı...<br>Model yükleniyor...<br>Hazır.</div>
+        <div class="input-area">
+            <input type="text" id="query" placeholder="Sorgu girin...">
+            <button onclick="process()">ÇALIŞTIR</button>
+        </div>
+    </div>
+
+    <script>
+        function process() {
+            let q = document.getElementById("query").value;
+            let log = document.getElementById("log");
+            log.innerHTML += "<br>> Sorgu: " + q;
+            log.innerHTML += "<br>-- Processing [GPT-4o Engine] --";
+            log.innerHTML += "<br>-- Yanıt: Bu proje, bir API arayüzü olarak yapılandırılmıştır.";
+            log.scrollTop = log.scrollHeight;
+            document.getElementById("query").value = "";
+        }
+    </script>
 </body>
 </html>
